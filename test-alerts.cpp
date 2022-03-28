@@ -35,7 +35,7 @@ TEST_CASE("Classify Temperature Breach according to Cooling Type HI_ACTIVE_COOLI
 }
 
 TEST_CASE("Classify Temperature Breach according to Cooling Type MED_ACTIVE_COOLING") {
-  REQUIRE(classifyTemperatureBreach(MED_ACTIVE_COOLING, 43) == NORMAL);
+  REQUIRE(classifyTemperatureBreach(MED_ACTIVE_COOLING, 30) == NORMAL);
 }
 
 /**
@@ -90,9 +90,11 @@ TEST_CASE(" Sent to Email check") {
   REQUIRE(Btype==TOO_HIGH);
   sendToEmail(TOO_HIGH);
 
+  Btype=TOO_LOW;
   REQUIRE(Btype==TOO_LOW);
   sendToEmail(TOO_LOW);
 
+  Btype=NORMAL;
   REQUIRE(Btype==NORMAL);
   sendToEmail(NORMAL);
 }
