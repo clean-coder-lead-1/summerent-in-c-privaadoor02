@@ -74,7 +74,6 @@ TEST_CASE(" Sent to controller check") {
   BreachType Btype=TOO_HIGH;
  
   REQUIRE(Btype==TOO_HIGH);
-
   sendToController(TOO_HIGH);
 }
 
